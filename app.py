@@ -13,8 +13,8 @@ from requests_aws4auth import AWS4Auth
 
 #start my function to get the search data back. yes, it's terrible.
 
-host = 'search-tika-2-gwpygqekxcdd6pvh3dxs62r3dq.us-west-2.es.amazonaws.com'
-region = 'us-west-2'
+host = 'your host'
+region = 'your region'
 service = 'es'
 credentials = boto3.Session().get_credentials()
 awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token)
@@ -92,12 +92,12 @@ print(res)
 
 
 #rds = boto3.client('rds')
-#rds = boto3.client('rds', region_name='us-west-2')
+#rds = boto3.client('rds', region_name='your region')
 #my_session = boto3.session.Session()
 #my_region = my_session.region_name
 # print(my_session)
 # print(my_region)
-#rds = boto3.setup_default_session(region_name='us-west-2')
+#rds = boto3.setup_default_session(region_name='your region')
 #rds = boto3.client('rds')
 #print(rds) 
 #print(my_region)
@@ -184,7 +184,7 @@ print(res)
 # )
 
 # Wait until the table exists.
-# table.meta.client.get_waiter('table_exists').wait(TableName='devTestDDB')
+# table.meta.client.get_waiter('table_exists').wait(TableName='yourtablename')
 
 # # Print out some data about the table.
 # print(table.item_count)
@@ -192,7 +192,7 @@ print(res)
 #import boto3
 #from boto3.dynamodb.conditions import Key
 # dynamodb = boto3.resource('dynamodb')
-# table = dynamodb.Table('bulkemail')
+# table = dynamodb.Table('your table name')
 
 
 
@@ -218,16 +218,16 @@ print(res)
 '''
 import boto3
 from boto3.dynamodb.conditions import Key
-dynamodb = boto3.resource('dynamodb', region_name='us-west-2')
+dynamodb = boto3.resource('dynamodb', region_name='your region')
 
-table = dynamodb.Table('bulkemail')
+table = dynamodb.Table('your table')
 
 response = table.query(
     KeyConditionExpression=Key('emailid').eq(8)
 )
 
 for i in response['Items']:
-    print(i['emailid'], ":", i['bulkdata'])
+    print(i['emailid'], ":", i['yourdatabase'])
 
 '''
 
@@ -240,7 +240,7 @@ for i in response['Items']:
 # are lazy-loaded: a request is not made nor are the attribute
 # values populated until the attributes
 # on the table resource are accessed or its load() method is called.
-#table = dynamodb.Table('bulkemail')
+#table = dynamodb.Table('your table')
 
 # Print out some data about the table.
 # This will cause a request to be made to DynamoDB and its attribute
@@ -254,8 +254,8 @@ for i in response['Items']:
 
 # #Get the service resource.
 # dynamodb = boto3.resource('dynamodb')
-# table = dynamodb.Table('testDevDDB')
-# #database = 'devTestDDB'
+# table = dynamodb.Table('your table')
+# #database = 'your database'
 # guid = '8'
 # ingestdate = '2021072601'
 # subject  = 'testing a new test table for artifacts'
