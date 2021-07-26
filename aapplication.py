@@ -26,8 +26,8 @@ def home():
 
 #start my function to get the search data back. yes, it's terrible.
 def request_search():
-  host = 'search-tika-2-gwpygqekxcdd6pvh3dxs62r3dq.us-west-2.es.amazonaws.com'
-  region = 'us-west-2'
+  host = 'your host'
+  region = 'your region'
   service = 'es'
   credentials = boto3.Session().get_credentials()
   awsauth = AWS4Auth(credentials.access_key, credentials.secret_key, region, service, session_token=credentials.token)
